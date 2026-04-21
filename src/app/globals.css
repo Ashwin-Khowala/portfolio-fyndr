@@ -17,6 +17,10 @@
 	--border-color: #e5e1d8;
 }
 
+html {
+	scrollbar-gutter: stable;
+}
+
 .dark {
 	--background: #0f0f0a;
 	--foreground: #f5f2e8;
