@@ -4,6 +4,7 @@ import Link from "next/link";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { MobileNav } from "@/components/MobileNav";
 
 const inter = Inter({
 	variable: "--font-inter",
@@ -21,6 +22,13 @@ export const metadata: Metadata = {
 		template: "%s | Ashwin Khowala",
 	},
 	description: "Founder of Clubfyndr. Building backend systems and real products from scratch.",
+	keywords: ["Ashwin Khowala", "Clubfyndr", "Backend Engineer", "Systems Architect", "Product Builder", "India"],
+	category: "technology",
+	alternates: {
+		canonical: "https://ashwinkhowala.com",
+	},
+	manifest: "/manifest.json",
+	themeColor: "#ffffff",
 	openGraph: {
 		title: "Ashwin Khowala",
 		description: "Building backend systems and real products from scratch.",
@@ -33,7 +41,7 @@ export const metadata: Metadata = {
 				height: 800,
 			},
 		],
-		locale: "en_US",
+		locale: "en_IN",
 		type: "website",
 	},
 	twitter: {
@@ -46,7 +54,19 @@ export const metadata: Metadata = {
 	robots: {
 		index: true,
 		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			'max-video-preview': -1,
+			'max-image-preview': 'large',
+			'max-snippet': -1,
+		},
 	},
+	other: {
+		"geo.region": "IN-KA",
+		"geo.placename": "Bangalore",
+		"ICBM": "12.9716; 77.5946",
+	}
 };
 
 export default function RootLayout({
@@ -54,13 +74,34 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const jsonLd = {
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Ashwin Khowala",
+		"url": "https://ashwinkhowala.com",
+		"jobTitle": "Founder",
+		"worksFor": {
+			"@type": "Organization",
+			"name": "Clubfyndr"
+		},
+		"sameAs": [
+			"https://linkedin.com/in/ashwin-khowala/",
+			"https://www.instagram.com/ashwinonfyndr"
+		],
+		"description": "Founder of Clubfyndr. Building backend systems and real products from scratch."
+	};
+
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<head>
 				<link rel="icon" href="/profile.jpg" type="image/jpeg"></link>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+				/>
 			</head>
 			<body className={`${inter.variable} ${geistMono.variable} antialiased`}>
-				<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+				<ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
 					<div className="max-w-6xl mx-auto px-6 pb-6 md:pb-10 min-h-screen flex flex-col">
 						<header className="sticky top-0 z-50 mb-12 flex items-center justify-between py-4 md:py-6 border-b border-[var(--border-color)] bg-[var(--background)]/80 backdrop-blur-md">
 							<div>
@@ -68,20 +109,27 @@ export default function RootLayout({
 									ASHWIN KHOWALA
 								</Link>
 							</div>
-							<nav className="flex items-center gap-10 text-base font-bold uppercase tracking-widest">
+							
+							{/* Desktop Nav */}
+							<nav className="hidden md:flex items-center gap-10 text-base font-bold uppercase tracking-widest">
 								<Link href="/" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors no-underline">
 									Home
 								</Link>
-								<div className="flex flex-col items-end">
-									<span className="text-[var(--muted)] opacity-50 cursor-not-allowed">
+								<div className="flex flex-col items-center gap-0.5">
+									<span className="text-[var(--muted)] opacity-50 cursor-not-allowed leading-none">
 										Blogs
 									</span>
-									<span className="text-[10px] font-bold text-[var(--link-hover)] opacity-70 -mt-1">
+									<span className="text-[10px] font-bold text-[var(--link-hover)] opacity-70 leading-none">
 										COMING SOON
 									</span>
 								</div>
 								<ThemeToggle />
 							</nav>
+
+							{/* Mobile Nav */}
+							<div className="md:hidden">
+								<MobileNav />
+							</div>
 						</header>
 
 						<main className="flex-grow">
