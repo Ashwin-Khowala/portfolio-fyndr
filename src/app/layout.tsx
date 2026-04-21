@@ -105,7 +105,7 @@ export default function RootLayout({
 										</Link>
 									</nav>
 									<div className="text-sm text-[var(--muted)] text-center md:text-right">
-										<p className="m-0">© {new Date().getFullYear()} Ashwin Khowala.</p>
+										<p className="m-0">© {new Date().getFullYear()} Ashwin Khowala </p>
 									</div>
 								</div>
 							</div>
