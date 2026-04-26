@@ -115,14 +115,6 @@ export default function RootLayout({
 								<Link href="/" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors no-underline">
 									Home
 								</Link>
-								<div className="flex flex-col items-center gap-0.5">
-									<span className="text-[var(--muted)] opacity-50 cursor-not-allowed leading-none">
-										Blogs
-									</span>
-									<span className="text-[10px] font-bold text-[var(--link-hover)] opacity-70 leading-none">
-										COMING SOON
-									</span>
-								</div>
 								<ThemeToggle />
 							</nav>
 
@@ -147,9 +139,6 @@ export default function RootLayout({
 									<nav className="flex gap-6 text-sm font-semibold uppercase tracking-wider">
 										<Link href="/" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors no-underline">
 											Home
-										</Link>
-										<Link href="/blog" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors no-underline">
-											Blogs
 										</Link>
 									</nav>
 									<div className="text-sm text-[var(--muted)] text-center md:text-right">

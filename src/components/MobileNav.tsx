@@ -87,14 +87,6 @@ export function MobileNav() {
 								>
 									Home
 								</Link>
-								<div className="flex flex-col">
-									<span className="text-xl font-bold text-[var(--muted)] opacity-50 cursor-not-allowed">
-										Blogs
-									</span>
-									<span className="text-[10px] font-bold text-[var(--link-hover)] opacity-70 mt-1">
-										COMING SOON
-									</span>
-								</div>
 							</nav>
 
 							{/* Theme Toggle */}
