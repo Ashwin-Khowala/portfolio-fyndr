@@ -17,7 +17,7 @@ export default function Home() {
 			<div className="flex flex-col-reverse md:flex-row gap-8 md:gap-20 items-center md:items-start text-center md:text-left mb-16 py-8">
 				<div className="flex-1">
 					<h1 className="text-4xl md:text-6xl font-bold mb-4 mt-0 tracking-tight text-[var(--foreground)]">Ashwin</h1>
-					<p className="text-2xl md:text-4xl font-bold mb-6 text-[var(--foreground)]">Co-Founder & CTO,<br />Building ClubFyndr.</p>
+					<p className="text-2xl md:text-4xl font-bold mb-6 text-[var(--foreground)]">Co-Founder & CTO,<br />Building <a href="https://www.clubfyndr.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--link-hover)] transition-colors">ClubFyndr</a>.</p>
 
 					<p className="text-xl md:text-2xl italic font-semibold text-[var(--link-hover)] mb-10 leading-snug">
 						backend systems, real products, scalable architecture. always building.
@@ -25,16 +25,21 @@ export default function Home() {
 
 					<div className="space-y-6 text-lg md:text-xl text-[var(--muted)] leading-relaxed">
 						<p>
-							I'm Ashwin, Co-Founder & CTO at ClubFyndr. Before this I built Fyndr, a social discovery platform, from zero to 1500+ users. I handled all the architecture, scaling, and infrastructure. Broke production once at 2am with users on the platform. Learned more in those 2 hours than in months of building. Eventually led the decision to shut it down and pivot to SaaS when the unit economics stopped making sense.
+							I'm Ashwin Co-Founder & CTO at{" "}
+							ClubFyndr
+
+							. I build backend systems and real products from scratch.
 						</p>
 						<p>
-							That's the short version of how I got here.
+							Before this, I co-founded Fyndr a social discovery platform
+							that grew to 1500+ users. I built every system behind it, made
+							every architectural call, and handled everything that broke under
+							real user load. Eventually led the decision to shut it down and
+							pivot. That experience is what brought ClubFyndr to life.
 						</p>
 						<p>
-							Now I'm building ClubFyndr and doing it properly this time.
-						</p>
-						<p className="italic font-medium">
-							ClubFyndr is an AI assistant that lives in WhatsApp, Telegram and your calls - not another app to open.
+							Now I'm focused on one thing building ClubFyndr into something
+							people genuinely rely on every day.
 						</p>
 					</div>
 
@@ -81,8 +86,6 @@ export default function Home() {
 				</div>
 			</div>
 
-
-
 			<hr className="border-[var(--border-color)] my-16" />
 
 			<section className="mb-12">
@@ -92,14 +95,32 @@ export default function Home() {
 					</div>
 					<div className="md:col-span-2 space-y-12">
 						<div className="space-y-4">
-							<h3 className="text-2xl font-bold text-[var(--foreground)] m-0">ClubFyndr</h3>
-							<p className="text-lg text-[var(--foreground)] font-semibold leading-relaxed m-0 italic">
+							<h3 className="text-2xl font-bold text-[var(--foreground)] m-0">
+								<a href="https://www.clubfyndr.com" target="_blank"
+									rel="noopener noreferrer"
+									className="hover:text-[var(--link-hover)] transition-colors">
+									ClubFyndr
+								</a>
+							</h3>
+							<p className="text-lg text-[var(--foreground)] font-semibold 
+                leading-relaxed m-0 italic">
 								Your AI, where you already are.
 							</p>
 							<p className="text-lg text-[var(--muted)] leading-relaxed m-0">
-								Most AI tools make you go find them. ClubFyndr works inside WhatsApp, Telegram and calls - reschedule meetings, clear your inbox, get reminders, all without opening anything new.
+								ClubFyndr is an AI productivity assistant that connects your
+								email, WhatsApp, Telegram and Slack -reads what matters,
+								handles what it can, and keeps you in the loop without pulling
+								you away from where you already are. Talk to it over a call,
+								ping it on Telegram, message it on WhatsApp. No new app.
+								No new habit. Just your AI, living where you do.
 							</p>
-							<a href="https://www.clubfyndr.com" target="_blank" className="inline-flex items-center gap-2 text-[var(--link-color)] font-semibold hover:underline">
+							<p className="text-lg text-[var(--muted)] leading-relaxed m-0">
+								Most AI assistants make you go find them. We built ClubFyndr
+								so you never have to.
+							</p>
+							<a href="https://www.clubfyndr.com" target="_blank"
+								className="inline-flex items-center gap-2 text-[var(--link-color)] 
+                font-semibold hover:underline">
 								Explore ClubFyndr ➔
 							</a>
 						</div>
@@ -116,12 +137,17 @@ export default function Home() {
 					</div>
 					<div className="md:col-span-2 space-y-12">
 						<div className="space-y-4">
-							<h3 className="text-2xl font-bold text-[var(--foreground)] m-0">Fyndr</h3>
+							<h3 className="text-2xl font-bold text-[var(--foreground)] m-0">
+								Fyndr
+							</h3>
 							<p className="text-lg text-[var(--muted)] leading-relaxed m-0">
-								Social discovery platform. Co-Founder & CTO. Built from scratch, scaled to 1500+ users, first paid conversions. Designed and owned the entire backend architecture. Managed production infrastructure under real user load. Led the pivot decision from social to SaaS based on unit economics. Shut down Fyndr to build ClubFyndr.
+								Social discovery platform. Co-Founder & CTO. Took it from zero
+								to 1500+ users. Built the entire backend from scratch every
+								system, every architectural decision, every fix under real
+								user load. First paid conversions. Real traction.
 							</p>
 							<p className="text-lg text-[var(--muted)] italic leading-relaxed m-0">
-								What I learned: social platforms burn money fast. Handling real users in production teaches you more than any side project. And knowing when to stop is as important as knowing how to build.
+								What I learned here became the foundation for ClubFyndr.
 							</p>
 						</div>
 					</div>
@@ -138,7 +164,12 @@ export default function Home() {
 					<div className="md:col-span-2 space-y-12">
 						<div className="space-y-4">
 							<p className="text-lg text-[var(--muted)] leading-relaxed m-0">
-								I write about building products, backend systems, and what it actually looks like to run a startup as a technical founder. Occasional posts, always specific.
+								I write about building real products, backend systems, and what
+								it actually looks like to run a startup as a technical founder.
+								Specific always. No fluff.
+							</p>
+							<p className="text-lg text-[var(--muted)] leading-relaxed m-0 italic">
+								First post coming soon.
 							</p>
 						</div>
 					</div>
