@@ -52,6 +52,7 @@ export default function Home() {
 							<LinkedinIcon className="w-5 h-5" />
 							<span>LinkedIn</span>
 						</a>
+						
 						<a href="https://www.instagram.com/ashwinonfyndr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-2.5 border border-[var(--border-color)] rounded-xl text-sm font-semibold hover:bg-[var(--surface)] hover:text-[var(--link-hover)] transition-all no-underline text-[var(--foreground)] hover:scale-105 shadow-sm">
 							<InstagramIcon className="w-5 h-5" />
 							<span>Instagram</span>
