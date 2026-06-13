@@ -10,6 +10,7 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "ashwin",
 	"main": ".open-next/worker.js",
+	"keep_names": false,
 	"compatibility_date": "2026-04-21",
 	"compatibility_flags": [
 		"nodejs_compat",
