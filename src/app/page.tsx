@@ -168,9 +168,11 @@ export default function Home() {
 								it actually looks like to run a startup as a technical founder.
 								Specific always. No fluff.
 							</p>
-							<p className="text-lg text-[var(--muted)] leading-relaxed m-0 italic">
-								First post coming soon.
-							</p>
+							<div className="mt-4">
+								<Link href="/blog" className="inline-flex items-center gap-2 text-[var(--link-color)] font-semibold hover:underline">
+									Read my blogs ➔
+								</Link>
+							</div>
 						</div>
 					</div>
 				</div>

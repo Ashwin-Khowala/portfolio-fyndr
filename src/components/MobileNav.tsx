@@ -87,6 +87,13 @@ export function MobileNav() {
 								>
 									Home
 								</Link>
+								<Link 
+									href="/blog" 
+									className="text-xl font-bold text-[var(--foreground)] hover:text-[var(--link-hover)] no-underline transition-colors"
+									onClick={() => setIsOpen(false)}
+								>
+									Blog
+								</Link>
 							</nav>
 
 							{/* Theme Toggle */}

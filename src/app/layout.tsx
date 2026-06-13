@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
@@ -16,7 +16,12 @@ const geistMono = Geist_Mono({
 	subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+	themeColor: "#ffffff",
+};
+
 export const metadata: Metadata = {
+	metadataBase: new URL("https://ashwin.clubfyndr.com"),
 	title: {
 		default: "Ashwin Khowala",
 		template: "%s | Ashwin Khowala",
@@ -25,14 +30,13 @@ export const metadata: Metadata = {
 	keywords: ["Ashwin Khowala", "Clubfyndr", "Backend Engineer", "Systems Architect", "Product Builder", "India"],
 	category: "technology",
 	alternates: {
-		canonical: "https://ashwinkhowala.com",
+		canonical: "https://ashwin.clubfyndr.com",
 	},
 	manifest: "/manifest.json",
-	themeColor: "#ffffff",
 	openGraph: {
 		title: "Ashwin Khowala",
 		description: "Building backend systems and real products from scratch.",
-		url: "https://ashwinkhowala.com",
+		url: "https://ashwin.clubfyndr.com",
 		siteName: "Ashwin Khowala",
 		images: [
 			{
@@ -78,7 +82,7 @@ export default function RootLayout({
 		"@context": "https://schema.org",
 		"@type": "Person",
 		"name": "Ashwin Khowala",
-		"url": "https://ashwinkhowala.com",
+		"url": "https://ashwin.clubfyndr.com",
 		"jobTitle": "Founder",
 		"worksFor": {
 			"@type": "Organization",
@@ -115,6 +119,9 @@ export default function RootLayout({
 								<Link href="/" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors no-underline">
 									Home
 								</Link>
+								<Link href="/blog" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors no-underline">
+									Blog
+								</Link>
 								<ThemeToggle />
 							</nav>
 
@@ -139,6 +146,9 @@ export default function RootLayout({
 									<nav className="flex gap-6 text-sm font-semibold uppercase tracking-wider">
 										<Link href="/" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors no-underline">
 											Home
+										</Link>
+										<Link href="/blog" className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors no-underline">
+											Blog
 										</Link>
 									</nav>
 									<div className="text-sm text-[var(--muted)] text-center md:text-right">
