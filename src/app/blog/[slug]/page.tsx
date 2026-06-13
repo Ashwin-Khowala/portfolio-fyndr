@@ -1,10 +1,38 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { blogs } from "../../../data/blogs";
+
+export async function generateStaticParams() {
+	return blogs.map((post) => ({
+		slug: post.slug,
+	}));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+	const { slug } = await params;
+	const post = blogs.find((b) => b.slug === slug);
+	if (!post) return {};
+	return {
+		title: post.title,
+		description: post.description,
+		alternates: {
+			canonical: `https://ashwin.clubfyndr.com/blog/${slug}`,
+		},
+		openGraph: {
+			title: post.title,
+			description: post.description,
+			url: `https://ashwin.clubfyndr.com/blog/${slug}`,
+		}
+	};
+}
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
-	
-	// Format slug to look like a title (replace dashes with spaces and capitalize)
-	const title = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+	const post = blogs.find((b) => b.slug === slug);
+
+	if (!post) {
+		notFound();
+	}
 
 	return (
 		<div className="prose prose-lg dark:prose-invert max-w-none">
@@ -14,31 +42,40 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 				</Link>
 			</div>
 
-			<h1 className="text-3xl sm:text-4xl font-bold mb-4">{title}</h1>
-			<p className="text-[var(--muted)] text-sm mb-10 border-b border-[var(--border-color)] pb-6">
-				Published on March 08, 2026
+			<h1 className="text-3xl sm:text-4xl font-bold mb-4 mt-0 tracking-tight text-[var(--foreground)] leading-tight">{post.title}</h1>
+			<p className="text-[var(--muted)] text-sm mb-10 border-b border-[var(--border-color)] pb-6 flex items-center gap-4">
+				<span>Published on {post.date}</span>
+				<span className="text-[var(--border-color)]">|</span>
+				<span>{post.readTime}</span>
 			</p>
 
-			<div className="space-y-6">
-				<p>
-					This is a placeholder for the blog post content. When we finalize the blog architecture 
-					(e.g., using local Markdown files or a headless CMS), this page will render the actual content.
-				</p>
-				<p>
-					For now, it demonstrates the minimalist layout inspired by sites like Arpit Bhayani's and Nithin Kamath's.
-					The focus is entirely on the typography, readability, and the content itself.
-				</p>
-				<h2>Example Subheading</h2>
-				<p>
-					Notice the clean sans-serif font, the comfortable line height, and the subtle contrast in text colors 
-					that make reading a pleasant experience.
-				</p>
-				<blockquote>
-					"Design is not just what it looks like and feels like. Design is how it works." - Steve Jobs
-				</blockquote>
-				<p>
-					Stay tuned for actual content coming soon to the fyndr club blog!
-				</p>
+			<div className="space-y-6 text-lg text-[var(--foreground)] leading-relaxed">
+				{post.sections.map((section, idx) => {
+					switch (section.type) {
+						case 'p':
+							return <p key={idx}>{section.content as string}</p>;
+						case 'h2':
+							return <h2 key={idx} className="text-2xl font-bold mt-10 mb-4 text-[var(--foreground)]">{section.content as string}</h2>;
+						case 'h3':
+							return <h3 key={idx} className="text-xl font-bold mt-8 mb-3 text-[var(--foreground)]">{section.content as string}</h3>;
+						case 'blockquote':
+							return (
+								<blockquote key={idx} className="border-l-4 border-[var(--link-hover)] pl-4 italic my-6 text-[var(--muted)]">
+									{section.content as string}
+								</blockquote>
+							);
+						case 'ul':
+							return (
+								<ul key={idx} className="list-disc pl-6 space-y-2 my-4">
+									{(section.content as string[]).map((item, itemIdx) => (
+										<li key={itemIdx}>{item}</li>
+									))}
+								</ul>
+							);
+						default:
+							return null;
+					}
+				})}
 			</div>
 		</div>
 	);
